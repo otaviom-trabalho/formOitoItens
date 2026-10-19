@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Formulário Modelo</title>
+
+    <style>
+        :root {
+            --cor-principal: #6a0dad;
+            --cor-secundaria: #9c27b0;
+            --cor-destaque: #d8b4fe;
+            --cor-fundo: #f5efff;
+            --cor-card: #ffffff;
+            --cor-texto: #2d163b;
+            --cor-texto-claro: #ffffff;
+            --cor-borda: #c4a7d7;
+            --sombra: 0 4px 15px rgba(80, 20, 120, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+        }
+
+        header {
+            background-color: var(--cor-principal);
+            color: var(--cor-texto-claro);
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header p {
+            margin-bottom: 0;
+        }
+
+        nav {
+            background-color: var(--cor-secundaria);
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: var(--cor-texto-claro);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            color: var(--cor-destaque);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        form {
+            background-color: var(--cor-card);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--sombra);
+        }
+
+        .campo {
+            margin-bottom: 20px;
+        }
+
+        label,
+        legend {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        input:not([type="radio"]):not([type="checkbox"]),
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--cor-borda);
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 8px;
+        }
+
+        fieldset {
+            border: 1px solid var(--cor-borda);
+            border-radius: 6px;
+            margin: 0 0 20px;
+            padding: 15px;
+        }
+
+        fieldset label {
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: var(--cor-principal);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        footer {
+            background-color: var(--cor-principal);
+            color: var(--cor-texto-claro);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: inline-block;
+                margin: 6px;
+            }
+
+            form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="inicio">
+        <h1>Formulário Modelo</h1>
+        <p>Exemplo de formulário HTML</p>
+    </header>
+
+    <nav aria-label="Menu principal">
+        <a href="#inicio">Início</a>
+        <a href="#formulario">Formulário</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <main>
+        <form id="formulario" action="#" method="post"
+              enctype="multipart/form-data">
+
+            <!-- 1. Texto -->
+            <div class="campo">
+                <label for="nome">Digite seu nome completo</label>
+                <input type="text" id="nome" name="nome"
+                       placeholder="Seu nome" required>
+            </div>
+
+            <!-- 2. E-mail -->
+            <div class="campo">
+                <label for="email">Digite seu e-mail</label>
+                <input type="email" id="email" name="email"
+                       placeholder="exemplo@gmail.com" required>
+            </div>
+
+            <!-- 3. Data -->
+            <div class="campo">
+                <label for="nascimento">Data de nascimento</label>
+                <input type="date" id="nascimento" name="nascimento">
+            </div>
+
+            <!-- 4. Número -->
+            <div class="campo">
+                <label for="idade">Digite sua idade</label>
+                <input type="number" id="idade" name="idade"
+                       min="1" max="120" placeholder="Sua idade">
+            </div>
+
+            <!-- 5. Radio -->
+            <fieldset>
+                <legend>Como prefere receber o contato?</legend>
+
+                <label for="contato-email">
+                    <input type="radio" id="contato-email"
+                           name="preferencia" value="email" required>
+                    E-mail
+                </label>
+
+                <label for="contato-telefone">
+                    <input type="radio" id="contato-telefone"
+                           name="preferencia" value="telefone">
+                    Telefone
+                </label>
+            </fieldset>
+
+            <!-- 6. Checkbox -->
+            <div class="campo">
+                <label for="termos">
+                    <input type="checkbox" id="termos" name="termos"
+                           value="aceito" required>
+                    Confirmo que os dados estão corretos.
+                </label>
+            </div>
+
+            <!-- 7. Telefone -->
+            <div class="campo">
+                <label for="telefone">Digite seu telefone</label>
+                <input type="tel" id="telefone" name="telefone"
+                       placeholder="(00) 00000-0000">
+            </div>
+
+            <!-- 8. Arquivo -->
+            <div class="campo">
+                <label for="arquivo">Anexe um arquivo</label>
+                <input type="file" id="arquivo" name="arquivo"
+                       accept=".pdf,.jpg,.jpeg,.png">
+            </div>
+
+            <!-- Lista de opções -->
+            <div class="campo">
+                <label for="assunto">Escolha um assunto</label>
+                <select id="assunto" name="assunto">
+                    <option value="">Selecione uma opção</option>
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="javascript">JavaScript</option>
+                </select>
+            </div>
+
+            <button type="submit">Enviar</button>
+
+        </form>
+    </main>
+
+    <footer id="contato">
+        <p>Exemplo de formulário HTML</p>
+        <p>Desenvolvido para fins educacionais</p>
+    </footer>
+
+</body>
+</html>
